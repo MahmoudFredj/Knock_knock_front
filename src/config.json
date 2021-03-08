@@ -1,0 +1,5 @@
+{
+    "apiDev":"https://localhost:44337/api",
+    "apiProd":"stillUnkown",
+    "requiredAuth":true
+}
