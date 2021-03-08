@@ -1,0 +1,46 @@
+:root {
+  --primary: white;
+  --secondary: gray;
+  --text: tomato;
+  --prefix: seagreen;
+  --suffix: orange;
+}
+
+body {
+  margin: 0;
+  background: var(--primary);
+}
+
+/* app wrapper */
+.app-wrapper {
+  background: white;
+}
+.app-wrapper > * {
+  background-color: gray;
+}
+/* end app wrapper */
+
+/* logo */
+.door-logo {
+  width: 25px;
+  height: 50px;
+  background-color: var(--prefix);
+  border: solid 0.5px var(--suffix);
+  position: relative;
+  transition: 0.27s;
+  transform-origin: 100%;
+}
+.door-logo .nob {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: var(--suffix);
+  border-radius: 50%;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.logo:hover .door-logo {
+  transform: scaleX(0.1);
+}
+/* end logo */

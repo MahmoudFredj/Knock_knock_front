@@ -1,0 +1,30 @@
+.app-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'head head'
+    'menu main'
+    'foot foot';
+  gap: 3px;
+}
+
+.app-wrapper > header {
+  grid-area: head;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  text-align: center;
+  padding: 10px;
+}
+.app-wrapper > menu {
+  margin: 0;
+  padding: 0;
+  grid-area: menu;
+}
+.app-wrapper > main {
+  grid-area: main;
+}
+.app-wrapper > footer {
+  grid-area: foot;
+}
