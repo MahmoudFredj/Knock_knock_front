@@ -28,3 +28,51 @@
 .app-wrapper > footer {
   grid-area: foot;
 }
+
+.door-page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 5px;
+}
+.door-page .actions {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.door-panel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px;
+  height: auto;
+}
+.door-panel .content {
+  display: grid;
+  grid-template-columns: 400px auto;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'name width'
+    'description height'
+    'description quantity'
+    'description price';
+  gap: 5px;
+}
+
+.door-panel .content .name {
+  grid-area: name;
+}
+.door-panel .content .width {
+  grid-area: width;
+}
+.door-panel .content .description {
+  grid-area: description;
+}
+.door-panel .content .quantity {
+  grid-area: quantity;
+}
+.door-panel .content .height {
+  grid-area: height;
+}
+.door-panel .content .price {
+  grid-area: price;
+}

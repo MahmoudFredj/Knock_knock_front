@@ -1,22 +1,119 @@
 :root {
-  --primary: white;
-  --secondary: gray;
-  --text: tomato;
-  --prefix: seagreen;
-  --suffix: orange;
+  --primary: #1e272e;
+  --secondary: #485460;
+  --text: #cad3c8;
+  --suffix: #00ff99;
+  --prefix: #ff0055;
+  --danger: red;
+  --success: green;
+  --info: blue;
 }
 
 body {
   margin: 0;
   background: var(--primary);
+  color: var(--text);
+  font-family: arial;
 }
+
+/* general */
+
+.danger {
+  color: var(--danger);
+}
+.success {
+  color: var(--success);
+}
+.info {
+  color: var(--info);
+}
+button {
+  background: var(--secondary);
+  color: var(--text);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 6px 13px;
+  cursor: pointer;
+  transition: 0.27s;
+}
+
+button:hover {
+  background: var(--text);
+  color: var(--primary);
+}
+.input-container {
+  padding: 10px 0px;
+  width: 100%;
+  color: var(--text);
+  box-sizing: border-box;
+  display: block;
+}
+
+fieldset {
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  position: relative;
+}
+fieldset .form-warning {
+  background: var(--primary);
+  color: var(--prefix);
+  padding: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fade;
+}
+fieldset legend {
+  color: var(--text);
+}
+
+.input-container input,
+select,
+textarea {
+  transition: 0.27s;
+  width: 100%;
+  box-sizing: border-box;
+  border: solid 0.5px var(--text);
+  background: var(--secondary);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 16px;
+  display: block;
+  padding: 6px 15px;
+  outline: none;
+  resize: none;
+}
+.input-container input:focus {
+  border: solid 1px var(--suffix);
+}
+
+.input-container span {
+  color: var(--prefix);
+  display: block;
+  margin-top: 5px;
+}
+
+/* end general */
 
 /* app wrapper */
 .app-wrapper {
-  background: white;
+  background: var(--secondary);
 }
 .app-wrapper > * {
-  background-color: gray;
+  background-color: var(--primary);
+}
+.app-wrapper header .title,
+.interractionsdoor-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-wrapper header .title h2 {
+  margin: 0;
 }
 /* end app wrapper */
 
@@ -44,3 +141,52 @@ body {
   transform: scaleX(0.1);
 }
 /* end logo */
+
+/* dialog */
+.dialog-background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--secondary);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background: var(--primary);
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 3;
+}
+/* end dialog */
+
+/* door page */
+.door-page {
+  background: var(--secondary);
+}
+.door-page > * {
+  background: var(--primary);
+}
+/* end door page */
+
+/* door panel */
+.door-panel {
+  margin: 5px;
+  padding: 5px;
+  border: solid 0.5px var(--prefix);
+}
+.door-panel .content label {
+  color: var(--secondary);
+}
+.door-panel .picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* end door panel */

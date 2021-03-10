@@ -8,7 +8,7 @@ class Head extends Component {
                 <div className="logo">
                     <Logo />
                 </div>
-                <div className="title">knock knock</div>
+                <div className="title"><h2>knock knock</h2></div>
                 <div className="interractions"><button>Login</button></div>
             </header>
         );

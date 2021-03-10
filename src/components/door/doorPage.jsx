@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import { loadDoor, } from "../../store/entities/door";
-import { loadWood, } from '../../store/entities/wood';
 import { connect } from 'react-redux';
+import AddDoorPanel from './addDoorPanel';
+import DoorPanel from './doorPanel';
+import Input from '../util/input';
 class DoorPage extends Component {
+    state = {
+        addDoorPanel: false,
+    }
     componentDidMount() {
-        this.props.loadWood();
         this.props.loadDoor();
     }
+
+
     render() {
         return (
             <div className="door-page">
+                {this.state.addDoorPanel &&
+                    <AddDoorPanel onClose={() => { this.setState({ addDoorPanel: false }); }} />
+                }
                 <div className="actions">
-                    <div className="search">
-                        <input type="text" placeholder="search ..." />
-                        <button>search</button>
+                    <div className="search" >
+                        <div className="input-container" style={{ display: "inline" }}>
+                            <input type="text" placeholder="search..." style={{ display: "inline", width: "auto" }} />
+                        </div>
                     </div>
-                    <button>Add</button>
+                    <button onClick={() => { this.setState({ addDoorPanel: true }) }}>Add</button>
                 </div>
                 <div className="content">
+                    {this.props.doors.map(door => <DoorPanel key={door.id} door={door} />)}
                 </div>
             </div>
         );
@@ -32,6 +43,5 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
     loadDoor: () => dispatch(loadDoor()),
-    loadWood: () => dispatch(loadWood())
 })
 export default connect(mapState, mapDispatch)(DoorPage);
