@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import Foot from './structure/foot';
-import Head from './structure/head';
-import MainMenu from './structure/mainMenu';
+
 import { Provider } from "react-redux";
 import storeConfiguration from '../store/storeConfiguration';
-import DoorPage from './door/doorPage';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomePage from './home/homePage';
+import Login from './login/login';
+import Register from './login/register';
 const store = storeConfiguration();
 class App extends Component {
     state = {}
     render() {
         return (
             <Provider store={store}>
-                <div className="app-wrapper">
-                    <Head />
-                    <MainMenu />
-                    <main>
-                        <DoorPage />
-                    </main>
-                    <Foot />
-                </div>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path="/login" component={Login} />
+                        <Route path="/register" component={Register} />
+                        <Route exact path="/" component={HomePage} />
+                    </Switch>
+                </BrowserRouter>
             </Provider>
         )
     }

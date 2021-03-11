@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 class MainMenu extends Component {
-    state = {}
+
     render() {
-        return <menu className="main-menu"></menu>
+        return (
+            <menu className="main-menu">
+            </menu>
+        );
     }
 }
 

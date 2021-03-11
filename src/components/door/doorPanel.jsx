@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../structure/logo';
+import { connect } from "react-redux";
 class DoorPanel extends Component {
     state = {}
     render() {
@@ -28,7 +29,7 @@ class DoorPanel extends Component {
                     </div>
                     <div className="price">
                         <label>price:</label>{this.props.door.price} usd
-                        <button style={{ float: "right" }}>add cart</button>
+                        {this.props.user && <button style={{ float: "right" }}>add cart</button>}
                     </div>
                 </div>
             </div>
@@ -36,4 +37,8 @@ class DoorPanel extends Component {
     }
 }
 
-export default DoorPanel;
+const mapState = (state) => ({
+    user: state.auth.userInfo,
+});
+
+export default connect(mapState, null)(DoorPanel);

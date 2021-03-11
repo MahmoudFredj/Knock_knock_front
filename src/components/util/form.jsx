@@ -85,7 +85,7 @@ class Form extends Component {
                 <fieldset>
                     <legend>{this.props.name}</legend>
                     {this.props.warning && (
-                        <label className="form-warning">{this.props.warning}</label>
+                        <label className="danger">{this.props.warning}</label>
                     )}
                     {this.state.inputs.map((input) => {
                         switch (input.type) {
@@ -137,14 +137,15 @@ class Form extends Component {
                     >
                         Confirm
                     </button>
-
-                    <button
-                        classes="danger"
-                        style={{ float: 'right' }}
-                        onClick={this.props.onCancel}
-                    >
-                        Cancel
-                    </button>
+                    {this.props.onCancel &&
+                        <button
+                            classes="danger"
+                            style={{ float: 'right' }}
+                            onClick={this.props.onCancel}
+                        >
+                            Cancel
+                                    </button>
+                    }
                 </fieldset>
             </div>
         )

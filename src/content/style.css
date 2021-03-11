@@ -35,12 +35,18 @@ button {
   box-shadow: none;
   padding: 6px 13px;
   cursor: pointer;
+  margin: 5px;
   transition: 0.27s;
 }
 
 button:hover {
   background: var(--text);
   color: var(--primary);
+}
+
+a {
+  color: inherit;
+  text-decoration-line: none;
 }
 .input-container {
   padding: 10px 0px;
@@ -106,6 +112,9 @@ textarea {
 .app-wrapper > * {
   background-color: var(--primary);
 }
+.app-wrapper header {
+  align-items: center;
+}
 .app-wrapper header .title,
 .interractionsdoor-panel {
   display: flex;
@@ -162,7 +171,19 @@ textarea {
   transform: translate(-50%, -50%);
   padding: 10px;
   border-radius: 5px;
+  animation: dialog-in 0.27s;
   z-index: 3;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -70%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 /* end dialog */
 
@@ -190,3 +211,22 @@ textarea {
   justify-content: center;
 }
 /* end door panel */
+
+/* login */
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* end login */
+
+/* register */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* end register */

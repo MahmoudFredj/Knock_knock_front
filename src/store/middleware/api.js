@@ -19,20 +19,18 @@ const api = ({ dispatch }) => (next) => async (action) => {
             url,
             method,
             data,
-        })
-        dispatch(actions.apiCallSuccess(response.data))
+        });
         if (onSuccess)
             dispatch({
                 type: onSuccess,
                 payload: response.data,
-            })
+            });
     } catch (error) {
-        dispatch(actions.apiCallFailed(error.message))
         if (onError)
             dispatch({
                 type: onError,
-                payload: error.response ? error.response.data : 'unexpected error',
-            })
+                payload: error.response ? error.response.data.Message : 'unexpected error',
+            });
     }
 }
 
