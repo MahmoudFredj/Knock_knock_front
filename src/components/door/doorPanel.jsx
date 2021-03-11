@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import Logo from '../structure/logo';
+import { removeDoor } from "../../store/entities/door";
 import { connect } from "react-redux";
 class DoorPanel extends Component {
-    state = {}
+    handleDelete = () => {
+        console.log("delete id:", this.props.door.id);
+        const ok = window.confirm("would you like to delete this?");
+
+        if (ok) this.props.removeDoor(this.props.door);
+    }
+
+    handleAddCart = () => {
+        let qte;
+        qte = 20;
+        console.log(qte);
+    }
     render() {
         return (
             <div className="door-panel">
@@ -29,6 +41,8 @@ class DoorPanel extends Component {
                     </div>
                     <div className="price">
                         <label>price:</label>{this.props.door.price} usd
+                        {this.props.user && this.props.user.role == "admin" &&
+                            <button className="danger" style={{ float: "right" }} onClick={this.handleDelete}>delete</button>}
                         {this.props.user && <button style={{ float: "right" }}>add cart</button>}
                     </div>
                 </div>
@@ -41,4 +55,8 @@ const mapState = (state) => ({
     user: state.auth.userInfo,
 });
 
-export default connect(mapState, null)(DoorPanel);
+const mapDispatch = (dispatch) => ({
+    removeDoor: (id) => dispatch(removeDoor(id)),
+});
+
+export default connect(mapState, mapDispatch)(DoorPanel);
