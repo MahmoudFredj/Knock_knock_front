@@ -4,9 +4,7 @@ import { removeDoor } from "../../store/entities/door";
 import { connect } from "react-redux";
 class DoorPanel extends Component {
     handleDelete = () => {
-        console.log("delete id:", this.props.door.id);
         const ok = window.confirm("would you like to delete this?");
-
         if (ok) this.props.removeDoor(this.props.door);
     }
 
